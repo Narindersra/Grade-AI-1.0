@@ -124,7 +124,7 @@ gradeai/
 ### Step 1: Clone Repository
 
 ```bash
-git clone 
+git clone https://github.com/Narindersra/Grade-AI-1.0
 cd gradeai
 ```
 
