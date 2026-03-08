@@ -1,0 +1,53 @@
+# ========================================
+# GradeAI - AI Detection Backend
+# Python Dependencies
+# ========================================
+
+# Flask Web Framework
+Flask==3.0.0
+flask-cors==4.0.0
+Werkzeug==3.0.1
+
+# AI/ML Libraries
+transformers==4.36.2
+torch==2.1.2
+tokenizers==0.15.0
+
+# File Processing
+PyPDF2==3.0.1
+python-docx==1.1.0
+Pillow==10.1.0
+pytesseract==0.3.10
+
+# Utilities
+numpy==1.26.2
+requests==2.31.0
+
+# ========================================
+# Optional Dependencies (for production)
+# ========================================
+# gunicorn==21.2.0        # Production WSGI server
+# python-dotenv==1.0.0    # Environment variables
+# redis==5.0.1            # Caching (optional)
+
+# ========================================
+# Installation Instructions:
+# ========================================
+# 1. Create virtual environment:
+#    python -m venv venv
+#
+# 2. Activate virtual environment:
+#    - Windows: venv\Scripts\activate
+#    - macOS/Linux: source venv/bin/activate
+#
+# 3. Install dependencies:
+#    pip install -r requirements.txt
+#
+# 4. For GPU support (NVIDIA CUDA):
+#    pip install torch --index-url https://download.pytorch.org/whl/cu118
+#
+# 5. For Tesseract OCR (image text extraction):
+#    - Windows: Download from https://github.com/UB-Mannheim/tesseract/wiki
+#    - macOS: brew install tesseract
+#    - Linux: sudo apt-get install tesseract-ocr
+# ========================================
