@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeAI – Intelligent Answer Grading Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Beautiful Background -->
+    <div class="page-background">
+        <div class="bg-gradient-1"></div>
+        <div class="bg-gradient-2"></div>
+        <div class="bg-pattern"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <span>GradeAI</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="#demo">Demo</a>
+                <a href="#pricing">Pricing</a>
+                <a href="ai-detection.html">AI Detector</a>
+                <a href="feedback.html">Feedback</a>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-ghost">Sign In</a>
+                <a href="signup.html" class="btn btn-primary">Get Started Free</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it Works</a>
+            <a href="#demo">Demo</a>
+            <a href="#pricing">Pricing</a>
+            <a href="ai-detection.html">AI Detector</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+        <div class="mobile-nav-actions">
+            <a href="login.html" class="btn btn-ghost btn-block">Sign In</a>
+            <a href="signup.html" class="btn btn-primary btn-block">Get Started Free</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-sparkles"></i>
+                        <span>AI-Powered Grading Technology</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Grade Answers<br>
+                        <span class="gradient-text">10x Faster with AI</span>
+                    </h1>
+                    <p class="hero-description">
+                        Transform your grading workflow with intelligent OCR and AI-powered evaluation. 
+                        Upload handwritten answers, compare with model solutions, and get instant accurate marks.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#demo" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket"></i>
+                            Start Grading Free
+                        </a>
+                        <a href="#how-it-works" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-play-circle"></i>
+                            Watch Demo
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value" data-count="50000">50K+</span>
+                            <span class="stat-label">Papers Graded</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">98%</span>
+                            <span class="stat-label">Accuracy Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" data-count="2000">2K+</span>
+                            <span class="stat-label">Happy Educators</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <div class="image-glow"></div>
+                        <div class="image-ring image-ring-1"></div>
+                        <div class="image-ring image-ring-2"></div>
+                        <div class="image-ring image-ring-3"></div>
+                        <div class="hero-image-container">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=500&fit=crop&q=80" alt="Exam papers and assignments being graded" class="hero-image">
+                            <div class="image-overlay"></div>
+                            <div class="image-shine"></div>
+                        </div>
+                        <div class="orbit-dots">
+                            <div class="orbit-dot orbit-dot-1"></div>
+                            <div class="orbit-dot orbit-dot-2"></div>
+                            <div class="orbit-dot orbit-dot-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands">
+            <div class="container">
+                <p class="brands-title">Trusted by leading educational institutions worldwide</p>
+                <div class="brands-track">
+                    <div class="brand-item">Stanford University</div>
+                    <div class="brand-item">MIT</div>
+                    <div class="brand-item">Harvard</div>
+                    <div class="brand-item">Oxford</div>
+                    <div class="brand-item">Cambridge</div>
+                    <div class="brand-item">Yale</div>
+                    <div class="brand-item">Princeton</div>
+                    <div class="brand-item">Stanford University</div>
+                    <div class="brand-item">MIT</div>
+                    <div class="brand-item">Harvard</div>
+                    <div class="brand-item">Oxford</div>
+                    <div class="brand-item">Cambridge</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-badge">
+                        <i class="fas fa-star"></i>
+                        Features
+                    </span>
+                    <h2>Everything You Need for<br><span class="gradient-text">Intelligent Grading</span></h2>
+                    <p>Powerful AI-driven tools designed to save time and improve accuracy</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card reveal stagger-1">
+                        <div class="feature-icon icon-primary">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Advanced OCR Technology</h3>
+                        <p>State-of-the-art optical character recognition that accurately reads any handwriting style with 98% accuracy.</p>
+                        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="feature-card reveal stagger-2">
+                        <div class="feature-icon icon-accent">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI-Powered Analysis</h3>
+                        <p>Deep learning models compare student answers with model solutions, understanding context and semantics.</p>
+                        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="feature-card reveal stagger-3">
+                        <div class="feature-icon icon-success">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Instant Feedback</h3>
+                        <p>Generate detailed, constructive feedback in seconds. Help students understand where they can improve.</p>
+                        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="feature-card reveal stagger-4">
+                        <div class="feature-icon icon-warning">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Performance Analytics</h3>
+                        <p>Track student progress over time with comprehensive dashboards and exportable reports.</p>
+                        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="feature-card reveal stagger-5">
+                        <div class="feature-icon icon-pink">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Bias-Free Grading</h3>
+                        <p>Ensure consistent, objective evaluation across all students. Eliminate unconscious grading bias.</p>
+                        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="feature-card reveal stagger-6">
+                        <div class="feature-icon icon-purple">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Integration</h3>
+                        <p>Seamlessly integrate with Google Classroom, Canvas, and other LMS platforms you already use.</p>
+                        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-badge">
+                        <i class="fas fa-cogs"></i>
+                        Process
+                    </span>
+                    <h2>Grade Papers in<br><span class="gradient-text">Three Simple Steps</span></h2>
+                    <p>Our streamlined process makes grading effortless</p>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step reveal stagger-1">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Upload & Configure</h3>
+                            <p>Enter your question, model answer, and maximum marks. Upload the handwritten answer image.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-connector"></div>
+                    
+                    <div class="step reveal stagger-2">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>AI Processing</h3>
+                            <p>Our AI reads the handwriting, understands the content, and compares it with the model answer.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-connector"></div>
+                    
+                    <div class="step reveal stagger-3">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Get Results</h3>
+                            <p>Receive accurate marks with detailed feedback instantly. Review, adjust if needed, and export.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo-section" id="demo">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-badge">
+                        <i class="fas fa-play"></i>
+                        Try It Now
+                    </span>
+                    <h2>Experience the Power of<br><span class="gradient-text">AI Grading</span></h2>
+                    <p>Try our grading engine with your own inputs</p>
+                </div>
+                
+                <div class="demo-container reveal-scale">
+                    <div class="demo-card">
+                        <div class="demo-grid">
+                            <div class="demo-input">
+                                <h3 class="demo-title">
+                                    <i class="fas fa-edit"></i>
+                                    Input Details
+                                </h3>
+                                
+                                <div class="input-group">
+                                    <label for="question">
+                                        <i class="fas fa-question-circle"></i>
+                                        Question
+                                    </label>
+                                    <textarea id="question" placeholder="Enter the question to be graded..." rows="3"></textarea>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="modelAnswer">
+                                        <i class="fas fa-check-circle"></i>
+                                        Model Answer
+                                    </label>
+                                    <textarea id="modelAnswer" placeholder="Enter the ideal/model answer..." rows="3"></textarea>
+                                </div>
+                                
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <label for="maxMarks">
+                                            <i class="fas fa-star"></i>
+                                            Max Marks
+                                        </label>
+                                        <input type="number" id="maxMarks" placeholder="10" min="1" max="100">
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label>
+                                            <i class="fas fa-image"></i>
+                                            Student Answer
+                                        </label>
+                                        <div class="file-upload" id="fileUpload">
+                                            <input type="file" id="studentAnswer" accept="image/*">
+                                            <div class="file-upload-content" id="fileLabel">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                <span>Upload Image</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="demo-error" id="demoError">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Please fill in all fields to continue</span>
+                                </div>
+                                
+                                <button class="btn btn-primary btn-block" id="evaluateBtn">
+                                    <i class="fas fa-magic"></i>
+                                    <span>Grade with AI</span>
+                                </button>
+                            </div>
+                            
+                            <div class="demo-output">
+                                <h3 class="demo-title">
+                                    <i class="fas fa-poll"></i>
+                                    AI Analysis
+                                </h3>
+                                
+                                <div class="output-placeholder" id="outputPlaceholder">
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <p>Enter details and click "Grade with AI" to see the results</p>
+                                </div>
+                                
+                                <div class="output-result" id="outputResult">
+                                    <div class="result-score">
+                                        <div class="score-ring">
+                                            <svg viewBox="0 0 120 120">
+                                                <defs>
+                                                    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                        <stop offset="0%" style="stop-color:#6366F1"/>
+                                                        <stop offset="100%" style="stop-color:#06B6D4"/>
+                                                    </linearGradient>
+                                                </defs>
+                                                <circle class="ring-bg" cx="60" cy="60" r="54"/>
+                                                <circle class="ring-fill" cx="60" cy="60" r="54" id="scoreRing"/>
+                                            </svg>
+                                            <div class="score-value">
+                                                <span class="score-num" id="scoreNum">0</span>
+                                                <span class="score-max" id="scoreMax">/10</span>
+                                            </div>
+                                        </div>
+                                        <div class="score-label">Score</div>
+                                    </div>
+                                    
+                                    <div class="result-details">
+                                        <div class="result-item">
+                                            <div class="result-header">
+                                                <i class="fas fa-lightbulb"></i>
+                                                <span>AI Feedback</span>
+                                            </div>
+                                            <p id="feedbackText"></p>
+                                        </div>
+                                        
+                                        <div class="result-item">
+                                            <div class="result-header">
+                                                <i class="fas fa-tasks"></i>
+                                                <span>Key Points</span>
+                                            </div>
+                                            <ul class="key-points" id="keyPoints"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-badge">
+                        <i class="fas fa-heart"></i>
+                        Testimonials
+                    </span>
+                    <h2>Loved by Educators<br><span class="gradient-text">Worldwide</span></h2>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal stagger-1">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"GradeAI has cut my grading time by 70%. The accuracy is remarkable, and the feedback it generates helps my students improve faster."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <strong>Dr. Sarah Chen</strong>
+                                <span>Professor of Biology, Stanford</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card reveal stagger-2">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Finally, a tool that understands context! It doesn't just match keywords—it truly comprehends what students are trying to say."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <strong>James Miller</strong>
+                                <span>High School Teacher, Boston</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card reveal stagger-3">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The consistency in grading across hundreds of papers is incredible. No more worrying about fatigue affecting my evaluations."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <strong>Prof. Emily Watson</strong>
+                                <span>Department Head, Oxford</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-badge">
+                        <i class="fas fa-tag"></i>
+                        Pricing
+                    </span>
+                    <h2>Simple, Transparent<br><span class="gradient-text">Pricing</span></h2>
+                    <p>Choose the plan that fits your needs</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal stagger-1">
+                        <div class="pricing-header">
+                            <h3>Starter</h3>
+                            <p>Perfect for individual educators</p>
+                        </div>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 50 papers/month</li>
+                            <li><i class="fas fa-check"></i> Basic OCR</li>
+                            <li><i class="fas fa-check"></i> Standard feedback</li>
+                            <li><i class="fas fa-check"></i> Email support</li>
+                        </ul>
+                        <a href="#demo" class="btn btn-outline btn-block">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card featured reveal stagger-2">
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>Professional</h3>
+                            <p>For serious educators</p>
+                        </div>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Unlimited papers</li>
+                            <li><i class="fas fa-check"></i> Advanced AI OCR</li>
+                            <li><i class="fas fa-check"></i> Detailed analytics</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                            <li><i class="fas fa-check"></i> LMS integration</li>
+                        </ul>
+                        <a href="#demo" class="btn btn-primary btn-block">Start Free Trial</a>
+                    </div>
+                    
+                    <div class="pricing-card reveal stagger-3">
+                        <div class="pricing-header">
+                            <h3>Enterprise</h3>
+                            <p>For institutions & schools</p>
+                        </div>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Everything in Pro</li>
+                            <li><i class="fas fa-check"></i> Multi-user accounts</li>
+                            <li><i class="fas fa-check"></i> Admin dashboard</li>
+                            <li><i class="fas fa-check"></i> API access</li>
+                            <li><i class="fas fa-check"></i> Dedicated support</li>
+                        </ul>
+                        <a href="#demo" class="btn btn-outline btn-block">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content reveal">
+                    <h2>Ready to Transform Your Grading?</h2>
+                    <p>Join thousands of educators who save hours every week with GradeAI</p>
+                    <div class="cta-buttons">
+                        <a href="#demo" class="btn btn-white btn-lg">
+                            <i class="fas fa-rocket"></i>
+                            Get Started Free
+                        </a>
+                        <a href="#" class="btn btn-ghost-white btn-lg">
+                            <i class="fas fa-calendar"></i>
+                            Schedule Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span>GradeAI</span>
+                    </a>
+                    <p>Intelligent grading powered by advanced AI. Save time, improve consistency, and help students learn faster.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#">Integrations</a>
+                    <a href="#">API</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Press</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Status</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 GradeAI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

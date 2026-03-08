@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up – GradeAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="auth.css">
+    <style>
+        /* ===== PROFESSIONAL LEFT PANEL REDESIGN ===== */
+        
+        .auth-left-content {
+            max-width: 480px;
+            text-align: left;
+        }
+
+        /* Main Dashboard Mockup */
+        .dashboard-mockup {
+            position: relative;
+            margin-bottom: 48px;
+            perspective: 1000px;
+        }
+
+        .mockup-container {
+            position: relative;
+            transform: rotateY(-5deg) rotateX(5deg);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .mockup-container:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        /* Main Glass Card */
+        .mockup-main-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Card Header with Dots */
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mockup-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .mockup-dot.red { background: #FF6B6B; }
+        .mockup-dot.yellow { background: #FBBF24; }
+        .mockup-dot.green { background: #34D399; }
+
+        .mockup-title {
+            margin-left: auto;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+
+        /* Stats Row */
+        .mockup-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .stat-card:nth-child(1) .stat-value { color: #818CF8; }
+        .stat-card:nth-child(2) .stat-value { color: #22D3EE; }
+        .stat-card:nth-child(3) .stat-value { color: #34D399; }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Progress Bars Section */
+        .mockup-progress-section {
+            margin-bottom: 16px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .progress-badge {
+            background: rgba(34, 211, 153, 0.2);
+            color: #34D399;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .progress-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            min-width: 80px;
+        }
+
+        .progress-track {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .progress-fill.indigo { background: linear-gradient(90deg, #6366F1, #818CF8); }
+        .progress-fill.cyan { background: linear-gradient(90deg, #06B6D4, #22D3EE); }
+        .progress-fill.emerald { background: linear-gradient(90deg, #10B981, #34D399); }
+
+        .progress-value {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            min-width: 36px;
+            text-align: right;
+        }
+
+        /* Recent Activity */
+        .mockup-activity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .activity-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: #FFFFFF;
+        }
+
+        .activity-info {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-size: 0.8rem;
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .activity-time {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .activity-status {
+            width: 8px;
+            height: 8px;
+            background: #34D399;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Floating Elements - Professionally Positioned */
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+        }
+
+        .floating-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .floating-card-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .floating-card-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .floating-card-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        /* Floating Card 1 - Top Right */
+        .floating-card-1 {
+            top: -20px;
+            right: -30px;
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .floating-card-1 .floating-card-icon {
+            background: linear-gradient(135deg, #10B981, #34D399);
+            color: #FFFFFF;
+        }
+
+        /* Floating Card 2 - Bottom Left */
+        .floating-card-2 {
+            bottom: 40px;
+            left: -40px;
+            animation: float2 7s ease-in-out infinite;
+        }
+
+        .floating-card-2 .floating-card-icon {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            color: #FFFFFF;
+        }
+
+        /* Floating Card 3 - Middle Right */
+        .floating-card-3 {
+            top: 50%;
+            right: -60px;
+            transform: translateY(-50%);
+            animation: float3 5s ease-in-out infinite;
+        }
+
+        .floating-card-3 .floating-card-icon {
+            background: linear-gradient(135deg, #F59E0B, #FBBF24);
+            color: #FFFFFF;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-5px, -10px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(8px, -8px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(calc(-50% - 12px)) translateX(-5px); }
+        }
+
+        /* Trust Badges - Updated */
+        .trust-badges {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 10px 16px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .trust-badge:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .trust-badge i {
+            color: #22D3EE;
+            font-size: 0.9rem;
+        }
+
+        /* Headline Text */
+        .auth-left-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .auth-left-content > p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .avatars-stack {
+            display: flex;
+        }
+
+        .avatar-item {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid rgba(118, 75, 162, 0.8);
+            margin-left: -10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            position: relative;
+        }
+
+        .avatar-item:first-child {
+            margin-left: 0;
+        }
+
+        .avatar-item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .social-proof-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        .social-proof-text strong {
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .floating-card-1 { right: -10px; }
+            .floating-card-2 { left: -20px; }
+            .floating-card-3 { right: -30px; }
+        }
+
+        @media (max-width: 1024px) {
+            .floating-card { display: none; }
+            .mockup-container {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-page">
+
+        <!-- ===== LEFT PANEL — Professional Dashboard Preview ===== -->
+        <div class="auth-left">
+            <div class="auth-left-orb"></div>
+            <div class="auth-left-content">
+
+                <a href="../index.html" class="auth-left-logo">
+                    <div class="logo-icon"><i class="fas fa-brain"></i></div>
+                    <span class="logo-text">GradeAI</span>
+                </a>
+
+                <!-- Dashboard Mockup -->
+                <div class="dashboard-mockup">
+                    <div class="mockup-container">
+                        
+                        <!-- Floating Card 1 - Time Saved -->
+                        <div class="floating-card floating-card-1">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span class="floating-card-value">12hrs</span>
+                                <span class="floating-card-label">Saved Weekly</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 - Accuracy -->
+                        <div class="floating-card floating-card-2">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span class="floating-card-value">98.5%</span>
+                                <span class="floating-card-label">Accuracy Rate</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 3 - Rating -->
+                        <div class="floating-card floating-card-3">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span class="floating-card-value">4.9/5</span>
+                                <span class="floating-card-label">User Rating</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Glass Card -->
+                        <div class="mockup-main-card">
+                            <!-- Header -->
+                            <div class="mockup-header">
+                                <span class="mockup-dot red"></span>
+                                <span class="mockup-dot yellow"></span>
+                                <span class="mockup-dot green"></span>
+                                <span class="mockup-title">Grading Dashboard</span>
+                            </div>
+
+                            <!-- Stats Row -->
+                            <div class="mockup-stats">
+                                <div class="stat-card">
+                                    <div class="stat-value">248</div>
+                                    <div class="stat-label">Graded</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">52</div>
+                                    <div class="stat-label">Pending</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">94%</div>
+                                    <div class="stat-label">Avg Score</div>
+                                </div>
+                            </div>
+
+                            <!-- Progress Section -->
+                            <div class="mockup-progress-section">
+                                <div class="progress-header">
+                                    <span class="progress-title">Class Performance</span>
+                                    <span class="progress-badge">+12% ↑</span>
+                                </div>
+                                <div class="progress-bars">
+                                    <div class="progress-item">
+                                        <span class="progress-label">Mathematics</span>
+                                        <div class="progress-track">
+                                            <div class="progress-fill indigo" style="width: 0%;" data-width="92%"></div>
+                                        </div>
+                                        <span class="progress-value">92%</span>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span class="progress-label">Science</span>
+                                        <div class="progress-track">
+                                            <div class="progress-fill cyan" style="width: 0%;" data-width="87%"></div>
+                                        </div>
+                                        <span class="progress-value">87%</span>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span class="progress-label">English</span>
+                                        <div class="progress-track">
+                                            <div class="progress-fill emerald" style="width: 0%;" data-width="95%"></div>
+                                        </div>
+                                        <span class="progress-value">95%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Activity -->
+                            <div class="mockup-activity">
+                                <div class="activity-avatar">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <div class="activity-text">New batch graded successfully</div>
+                                    <div class="activity-time">Just now</div>
+                                </div>
+                                <div class="activity-status"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Start Grading Smarter Today</h2>
+                <p>Join 50,000+ educators who save hours every week with AI-powered grading.</p>
+
+                <!-- Trust Badges -->
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-check"></i>
+                        <span>No Credit Card</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-bolt"></i>
+                        <span>Setup in 2 mins</span>
+                    </div>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="social-proof">
+                    <div class="avatars-stack">
+                        <div class="avatar-item">JD</div>
+                        <div class="avatar-item">MK</div>
+                        <div class="avatar-item">AS</div>
+                        <div class="avatar-item">+</div>
+                    </div>
+                    <div class="social-proof-text">
+                        <strong>2,400+</strong> educators joined this month
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RIGHT PANEL — Signup Form ===== -->
+        <div class="auth-right">
+            <div class="auth-form-container">
+
+                <!-- Mobile logo -->
+                <a href="../index.html" class="auth-mobile-logo">
+                    <div class="logo-icon"><i class="fas fa-brain"></i></div>
+                    <span class="logo-text">GradeAI</span>
+                </a>
+
+                <!-- Back link -->
+                <a href="../index.html" class="auth-back">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+
+                <!-- Header -->
+                <div class="auth-form-header">
+                    <h1>Create your free account</h1>
+                    <p>Already have an account? <a href="login.html">Sign in</a></p>
+                </div>
+
+                <!-- Social Login -->
+                <div class="auth-social-buttons">
+                    <button type="button" class="auth-social-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Google
+                    </button>
+                    <button type="button" class="auth-social-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="auth-divider">
+                    <span>or sign up with email</span>
+                </div>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form" novalidate>
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="signup-name">Full Name <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input
+                                type="text"
+                                id="signup-name"
+                                name="fullname"
+                                class="form-input"
+                                placeholder="John Doe"
+                                autocomplete="name"
+                                required
+                            >
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
+                        <div class="form-error">
+                            <i class="fas fa-exclamation-circle"></i> <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="signup-email">Email Address <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input
+                                type="email"
+                                id="signup-email"
+                                name="email"
+                                class="form-input"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <div class="form-error">
+                            <i class="fas fa-exclamation-circle"></i> <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="signup-password">Password <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input
+                                type="password"
+                                id="signup-password"
+                                name="password"
+                                class="form-input"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                required
+                            >
+                            <i class="fas fa-lock input-icon"></i>
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="form-error">
+                            <i class="fas fa-exclamation-circle"></i> <span></span>
+                        </div>
+                        <!-- Password Strength -->
+                        <div class="password-strength">
+                            <div class="password-strength-bars">
+                                <div class="password-strength-bar"></div>
+                                <div class="password-strength-bar"></div>
+                                <div class="password-strength-bar"></div>
+                                <div class="password-strength-bar"></div>
+                            </div>
+                            <span class="password-strength-label"></span>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm Password <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input
+                                type="password"
+                                id="signup-confirm"
+                                name="confirm-password"
+                                class="form-input"
+                                placeholder="Repeat your password"
+                                autocomplete="new-password"
+                                required
+                            >
+                            <i class="fas fa-lock input-icon"></i>
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="form-error">
+                            <i class="fas fa-exclamation-circle"></i> <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Terms checkbox -->
+                    <div class="form-group">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="terms" required>
+                            <div class="checkmark"><i class="fas fa-check"></i></div>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="auth-submit-btn">
+                        <div class="spinner"></div>
+                        <span class="btn-text">Create Account <i class="fas fa-arrow-right"></i></span>
+                    </button>
+                </form>
+
+                <!-- Terms note -->
+                <div class="auth-terms">
+                    By creating an account, you agree to receive product updates and marketing emails. You can unsubscribe at any time.
+                </div>
+
+                <!-- Footer -->
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Sign in instead</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Animate progress bars on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(bar => {
+                    bar.style.width = bar.dataset.width;
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

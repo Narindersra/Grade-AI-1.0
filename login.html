@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In – GradeAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="auth.css">
+    <style>
+        /* ===== PROFESSIONAL LEFT PANEL — LOGIN VERSION ===== */
+        
+        .auth-left-content {
+            max-width: 480px;
+            text-align: left;
+        }
+
+        /* Main Dashboard Mockup */
+        .dashboard-mockup {
+            position: relative;
+            margin-bottom: 48px;
+            perspective: 1000px;
+        }
+
+        .mockup-container {
+            position: relative;
+            transform: rotateY(-5deg) rotateX(5deg);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .mockup-container:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        /* Main Glass Card */
+        .mockup-main-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Card Header with Dots */
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mockup-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .mockup-dot.red { background: #FF6B6B; }
+        .mockup-dot.yellow { background: #FBBF24; }
+        .mockup-dot.green { background: #34D399; }
+
+        .mockup-title {
+            margin-left: auto;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+
+        /* Welcome Message */
+        .mockup-welcome {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .welcome-avatar {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+        }
+
+        .welcome-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .welcome-subtext {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Quick Stats Row */
+        .mockup-quick-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quick-stat {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .quick-stat:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .quick-stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .quick-stat-icon.indigo {
+            background: rgba(99, 102, 241, 0.25);
+            color: #A5B4FC;
+        }
+        .quick-stat-icon.cyan {
+            background: rgba(6, 182, 212, 0.25);
+            color: #67E8F9;
+        }
+        .quick-stat-icon.emerald {
+            background: rgba(16, 185, 129, 0.25);
+            color: #6EE7B7;
+        }
+        .quick-stat-icon.amber {
+            background: rgba(245, 158, 11, 0.25);
+            color: #FCD34D;
+        }
+
+        .quick-stat-info {
+            flex: 1;
+        }
+
+        .quick-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .quick-stat-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Recent Sessions */
+        .mockup-sessions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .session-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .session-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(34, 211, 153, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #34D399;
+            font-size: 0.85rem;
+        }
+
+        .session-info {
+            flex: 1;
+        }
+
+        .session-device {
+            font-size: 0.8rem;
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .session-time {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .session-status {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: rgba(34, 211, 153, 0.2);
+            color: #34D399;
+        }
+
+        /* Floating Elements - Professionally Positioned */
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+        }
+
+        .floating-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .floating-card-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .floating-card-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .floating-card-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        /* Floating Card 1 - Top Right */
+        .floating-card-1 {
+            top: -20px;
+            right: -30px;
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .floating-card-1 .floating-card-icon {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            color: #FFFFFF;
+        }
+
+        /* Floating Card 2 - Bottom Left */
+        .floating-card-2 {
+            bottom: 40px;
+            left: -40px;
+            animation: float2 7s ease-in-out infinite;
+        }
+
+        .floating-card-2 .floating-card-icon {
+            background: linear-gradient(135deg, #10B981, #34D399);
+            color: #FFFFFF;
+        }
+
+        /* Floating Card 3 - Middle Right */
+        .floating-card-3 {
+            top: 45%;
+            right: -55px;
+            transform: translateY(-50%);
+            animation: float3 5s ease-in-out infinite;
+        }
+
+        .floating-card-3 .floating-card-icon {
+            background: linear-gradient(135deg, #06B6D4, #22D3EE);
+            color: #FFFFFF;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-5px, -10px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(8px, -8px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(calc(-50% - 12px)) translateX(-5px); }
+        }
+
+        /* Security Badges */
+        .security-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 10px 16px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .security-badge:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .security-badge i {
+            font-size: 0.9rem;
+        }
+
+        .security-badge i.lock { color: #818CF8; }
+        .security-badge i.shield { color: #34D399; }
+        .security-badge i.check { color: #22D3EE; }
+
+        /* Headline Text */
+        .auth-left-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .auth-left-content > p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .floating-card-1 { right: -10px; }
+            .floating-card-2 { left: -20px; }
+            .floating-card-3 { right: -30px; }
+        }
+
+        @media (max-width: 1024px) {
+            .floating-card { display: none; }
+            .mockup-container {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-page">
+
+        <!-- ===== LEFT PANEL — Professional Dashboard Preview ===== -->
+        <div class="auth-left">
+            <div class="auth-left-orb"></div>
+            <div class="auth-left-content">
+
+                <a href="../index.html" class="auth-left-logo">
+                    <div class="logo-icon"><i class="fas fa-brain"></i></div>
+                    <span class="logo-text">GradeAI</span>
+                </a>
+
+                <!-- Dashboard Mockup -->
+                <div class="dashboard-mockup">
+                    <div class="mockup-container">
+                        
+                        <!-- Floating Card 1 - Uptime -->
+                        <div class="floating-card floating-card-1">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span class="floating-card-value">99.9%</span>
+                                <span class="floating-card-label">Uptime</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 - Secure -->
+                        <div class="floating-card floating-card-2">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span class="floating-card-value">256-bit</span>
+                                <span class="floating-card-label">Encryption</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 3 - Active -->
+                        <div class="floating-card floating-card-3">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span class="floating-card-value">12.4K</span>
+                                <span class="floating-card-label">Online Now</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Glass Card -->
+                        <div class="mockup-main-card">
+                            <!-- Header -->
+                            <div class="mockup-header">
+                                <span class="mockup-dot red"></span>
+                                <span class="mockup-dot yellow"></span>
+                                <span class="mockup-dot green"></span>
+                                <span class="mockup-title">Your Dashboard</span>
+                            </div>
+
+                            <!-- Welcome Message -->
+                            <div class="mockup-welcome">
+                                <div class="welcome-avatar">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="welcome-text">Welcome back!</div>
+                                <div class="welcome-subtext">Your grading dashboard awaits</div>
+                            </div>
+
+                            <!-- Quick Stats -->
+                            <div class="mockup-quick-stats">
+                                <div class="quick-stat">
+                                    <div class="quick-stat-icon indigo">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="quick-stat-info">
+                                        <div class="quick-stat-value">24</div>
+                                        <div class="quick-stat-label">Pending</div>
+                                    </div>
+                                </div>
+                                <div class="quick-stat">
+                                    <div class="quick-stat-icon cyan">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="quick-stat-info">
+                                        <div class="quick-stat-value">3.2h</div>
+                                        <div class="quick-stat-label">Saved Today</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Sessions -->
+                            <div class="mockup-sessions">
+                                <div class="session-item">
+                                    <div class="session-icon">
+                                        <i class="fas fa-laptop"></i>
+                                    </div>
+                                    <div class="session-info">
+                                        <div class="session-device">MacBook Pro • Chrome</div>
+                                        <div class="session-time">Last active: 2 hours ago</div>
+                                    </div>
+                                    <div class="session-status">Active</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Welcome Back to GradeAI</h2>
+                <p>Continue grading with AI precision. Your dashboard awaits with insights and analytics.</p>
+
+                <!-- Security Badges -->
+                <div class="security-badges">
+                    <div class="security-badge">
+                        <i class="fas fa-lock lock"></i>
+                        <span>SSL Secured</span>
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt shield"></i>
+                        <span>GDPR Compliant</span>
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-check-circle check"></i>
+                        <span>SOC 2 Certified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RIGHT PANEL — Login Form ===== -->
+        <div class="auth-right">
+            <div class="auth-form-container">
+
+                <!-- Mobile logo -->
+                <a href="../index.html" class="auth-mobile-logo">
+                    <div class="logo-icon"><i class="fas fa-brain"></i></div>
+                    <span class="logo-text">GradeAI</span>
+                </a>
+
+                <!-- Back link -->
+                <a href="../index.html" class="auth-back">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+
+                <!-- Header -->
+                <div class="auth-form-header">
+                    <h1>Sign in to your account</h1>
+                    <p>Don't have an account? <a href="signup.html">Create one free</a></p>
+                </div>
+
+                <!-- Social Login -->
+                <div class="auth-social-buttons">
+                    <button type="button" class="auth-social-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Google
+                    </button>
+                    <button type="button" class="auth-social-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="auth-divider">
+                    <span>or continue with email</span>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form" novalidate>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="login-email">Email Address <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input
+                                type="email"
+                                id="login-email"
+                                name="email"
+                                class="form-input"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <div class="form-error">
+                            <i class="fas fa-exclamation-circle"></i> <span>Please enter a valid email</span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="login-password">Password <span class="required">*</span></label>
+                        <div class="form-input-wrapper">
+                            <input
+                                type="password"
+                                id="login-password"
+                                name="password"
+                                class="form-input"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+                            <i class="fas fa-lock input-icon"></i>
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="form-error">
+                            <i class="fas fa-exclamation-circle"></i> <span>Password is required</span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me + Forgot -->
+                    <div class="form-row">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="remember">
+                            <div class="checkmark"><i class="fas fa-check"></i></div>
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="form-link">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="auth-submit-btn">
+                        <div class="spinner"></div>
+                        <span class="btn-text">Sign In <i class="fas fa-arrow-right"></i></span>
+                    </button>
+                </form>
+
+                <!-- Footer -->
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="signup.html">Sign up for free</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
