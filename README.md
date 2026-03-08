@@ -79,7 +79,7 @@ Visit: [GradeAI Demo](#) *(Add your deployed URL)*
 ### Local Demo
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/gradeai.git
+git clone https://github.com/Narindersra/Grade-AI-1.0
 
 # Open index.html in browser
 open index.html
