@@ -74,7 +74,7 @@ This is AI project for Teacher.
 ## 🚀 Demo
 
 ### Live Demo
-Visit: [GradeAI Demo](#) *(Add your deployed URL)*
+Visit: [GradeAI Demo](#) *(http://127.0.0.1:3000/frontend/index.html)*
 
 ### Local Demo
 ```bash
