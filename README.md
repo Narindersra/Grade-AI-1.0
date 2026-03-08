@@ -124,7 +124,7 @@ gradeai/
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/gradeai.git
+git clone 
 cd gradeai
 ```
 
@@ -166,7 +166,7 @@ sudo apt-get install tesseract-ocr
 ### Step 4: Run Backend Server
 
 ```bash
-python ai-detection-backend.py
+python ai-detection.py
 ```
 
 Server will start at: `http://localhost:5000`
